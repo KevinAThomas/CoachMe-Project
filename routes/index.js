@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const bcryptjs = require('bcryptjs');
+const session = require('express-session');
+
 
 const User = require('../models/User');
 const Courses = require('../models/Courses');
@@ -12,27 +14,74 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-
 /*Sign up page*/
 
 router.get('/signup', (req, res) => res.render('signup'))
-
 router.post('/signup', (req, res, next) => {
     const salt = bcryptjs.genSaltSync(10);
     const encryptedPassword = bcryptjs.hashSync(req.body.password, salt);
 
     User.create({
-        username: req.body.username,
-        passwordHash: encryptedPassword
+        email: req.body.email,
+        password: encryptedPassword
     })
         .then(userDB=>{
-            res.send('Utilisateur créé')
+            res.send('User is created! 💙')
             console.log('Newly created user is:', userDB);
             res.redirect('/user-profile');
         })
         .catch(err => next(err))
 })
 
+router.get('/user-profile', (req, res)=>{
+  res.render('user-profile' ,{userInSession :req.session.currentUser});
+})
+
+
+/*Login page*/
+
+router.get('/login', (req, res, next) => {
+  res.render('login');
+})
+
+//.post() login route ==> to process from data
+router.post('/login', (req, res, next) =>{
+  const {email, password} = req.body;
+
+  // to see the req.session
+  console.log('SESSION =====> ', req.session);
+
+  if (email === '' || password === ''){
+      res.render('login', {
+          errorMessage: 'Please enter both username and password to login'
+      });
+      return ;
+  }
+
+User.findOne({email})
+.then (user=>{
+  if (!user){
+      res.render('login', {errorMessage: 'Username is not valid, please try with other username'});
+      return ;
+  }else if (bcryptjs.compareSync(password, user.password)){
+      //******* SAVE THE USER IN THE SESSION ********//
+      req.session.currentUser = user;
+      res.render('user-profile', {userInSession: req.session.currentUser});
+     // res.redirect('/user-profile');
+  }
+  else {
+      res.render('login', {errorMessage: 'Incorrect password! try again'});
+  }
+})
+.catch(error => next(error));
+})
+
+
+//logout
+router.post('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
 
 
 /////////////////////////////////////COACH ME/////////////////////////////////////

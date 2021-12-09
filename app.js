@@ -8,7 +8,7 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-
+const session      = require('express-session');
 
 mongoose
   .connect('mongodb://localhost/CoachMe-Project', {useNewUrlParser: true})
@@ -44,6 +44,17 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+
+
+//added :session
+  app.use(
+    session({
+      secret: process.env.SESS_SECRET,
+      resave: false,
+      saveUninitialized: true,
+      // cookie: { maxAge: 60000 } // 60 * 1000 ms === 1 min
+    })
+  );
 
 
 // default value for title local
