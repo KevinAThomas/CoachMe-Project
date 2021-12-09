@@ -14,6 +14,12 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+/*GET user-created page*/
+router.get("/user-created", (req, res, next)=> {
+  res.render('user-created');
+})
+
+
 /*Sign up page*/
 
 router.get('/signup', (req, res) => res.render('signup'))
@@ -26,9 +32,10 @@ router.post('/signup', (req, res, next) => {
         password: encryptedPassword
     })
         .then(userDB=>{
-            res.send('User is created! 💙')
+            res.redirect('/user-created');
             console.log('Newly created user is:', userDB);
-            res.redirect('/user-profile');
+           // res.redirect('/');
+           // res.redirect('/user-profile');
         })
         .catch(err => next(err))
 })
