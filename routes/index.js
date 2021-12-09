@@ -14,14 +14,27 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+/* GET review page */
+// req.curruser -> 
+router.get("/create-reviews", (req, res, next)=> {
+  if(req.session.currentUser){
+    res.render('create-reviews');
+  }else{
+    res.redirect('/login');
+  }
+})
+
 /*GET user-created page*/
 router.get("/user-created", (req, res, next)=> {
   res.render('user-created');
 })
 
+/*GET Book-a-session page*/
+router.get("/book-session", (req, res, next)=> {
+  res.render('book-session');
+})
 
 /*Sign up page*/
-
 router.get('/signup', (req, res) => res.render('signup'))
 router.post('/signup', (req, res, next) => {
     const salt = bcryptjs.genSaltSync(10);
@@ -125,6 +138,8 @@ router.get("/style_coach", (req, res, next) => {
     });
 });
 */
+
+
 
 
 
