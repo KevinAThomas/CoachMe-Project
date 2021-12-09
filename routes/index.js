@@ -1,18 +1,39 @@
 const express = require("express");
 const router = express.Router();
+const bcryptjs = require('bcryptjs');
 
 const User = require('../models/User');
 const Courses = require('../models/Courses');
 const Coaching = require('../models/Coaching');
 const Reviews = require('../models/Reviews');
 
-//const Celebrity = require("../models/celebrity");
-//const Movie = require("../models/Movie");
-
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
 });
+
+
+/*Sign up page*/
+
+router.get('/signup', (req, res) => res.render('signup'))
+
+router.post('/signup', (req, res, next) => {
+    const salt = bcryptjs.genSaltSync(10);
+    const encryptedPassword = bcryptjs.hashSync(req.body.password, salt);
+
+    User.create({
+        username: req.body.username,
+        passwordHash: encryptedPassword
+    })
+        .then(userDB=>{
+            res.send('Utilisateur créé')
+            console.log('Newly created user is:', userDB);
+            res.redirect('/user-profile');
+        })
+        .catch(err => next(err))
+})
+
+
 
 /////////////////////////////////////COACH ME/////////////////////////////////////
 //step1. create the 4 coach pages
