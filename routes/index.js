@@ -28,19 +28,28 @@ router.post("/create-reviews", (req, res, next)=> {
     res.redirect('/login')
   }
 
-  Reviews.create({
-    email: req.body.email,
-    category:req.body.user,
-    location:req.body.location,
-    text:req.body.text,
-    coach: req.body.coach
+  const name = req.body.coach
+  Coaching.findOne({name})
+  .then(coach => {
+    const coachId = coach._id
+
+    Reviews.create({
+      email: req.body.email,
+      category:req.body.user,
+      location:req.body.location,
+      text:req.body.text,
+      coach: coachId
+  
+    })
+    .then(createdReview => {
+      res.redirect('/create-reviews');
+      console.log('The review has been created:', createdReview)
+    })
+    .catch(err => next(err));
 
   })
-  .then(createdReview => {
-    res.redirect('/create-reviews');
-    console.log('The review has been created:', createdReview)
-  })
-  .catch(err => next(err));
+
+
 })
 
 /*GET user-created page*/
