@@ -2,9 +2,47 @@
 <h2> this is the review page! please leave your reviews!! 🐱</h2>
 
 
+<form action="/create-reviews" method="POST">
+    <h2>Create the reviews!!</h2>
+    {{!-- <label for="date">Date:</label>
+    <input id ="date" type="date">  --}}
+
+    <label>
+        Username:
+        <input type="text" name="user"/>
+    </label>
+    
+    <label>
+        Category:
+        <input type="text" name="category" />
+    </label>
+    
+    <label>
+        coach:
+        <input type="text" name="coach" />
+    </label>
+
+        <label>
+        text:
+        <input type="text" name="text" />
+    </label>
+
+    <label for="location">Location:</label>
+    <select name="location" id="locations">
+        <option value="Paris">Paris</option>
+        <option value="Nantes">Nantes</option>
+        <option value="Lyon">Lyon</option>
+        <option value="Lyon">Nice</option>
+        <option value="Bordeaux">Bordeaux</option>
+        <option value="Lille">Lille</option>
+        <option value="Marseille">Marseille</option>
+    </select>
+
+    <button> Create the reviews</button>
+</form>
 
 
-
+<!--
 <script src="https://use.fontawesome.com/a6f0361695.js"></script>
 
     <h2>Write a review✏️  </h2>
@@ -62,3 +100,5 @@
 <button type="submit" class="btn btn-primary">Send a review ✏️</button>
 
 </form>
+
+--!>

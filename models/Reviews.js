@@ -2,11 +2,11 @@ const { Schema, model, Mongoose } = require('mongoose');
 
 const reviewSchema = new Schema(
     {
-    name: String,
-    user_id: String,
-    coaching_id: String,
+    category: String,
+    location: String,
     text: String,
     user:[ { type : Schema.Types.ObjectId, ref: 'User'}],
+    coach: { type : Schema.Types.ObjectId, ref: 'Coaching', required: true },
    //- Array of object IDs referencing the celebrity model (basically, the array of celebrities' IDs)
     },
     {
@@ -14,4 +14,4 @@ const reviewSchema = new Schema(
     }
 );
 
-module.exports = model('Movie', reviewSchema);
+module.exports = model('Reviews', reviewSchema);

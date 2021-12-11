@@ -73,6 +73,25 @@ const coach = [
     }
 ]
 
+// // created the New review models
+const review = [
+    {
+        user: [],
+        category : "sport",
+        location: "Paris",
+        coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a60"),
+        text: "It was very helpful courses that I've ever took!"
+    },
+    {
+        user:[],
+        category : "life",
+        location: "Paris",
+        coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a63"),
+        text: "I changed my daily routine thanks to these courses!!" 
+    }
+]
+
+
 
 /*
 Coaching.create(coach)
@@ -89,7 +108,19 @@ Coaching.create(coach)
 // created the coaching
 Courses.create(courses)
 .then(function (courseDB){
-    console.log(`${courseDB.length} have been created 😃`);
+    console.log(`${courseDB.length} courses have been created 😃`);
+})
+.catch(err => {
+    console.log('Error! during the creation of the Coach DB');
+    console.log('ERROR ===>', err);
+    next(err);
+})
+
+
+// created the reviews
+Reviews.create(review)
+.then(function (reviewDB){
+    console.log(`${reviewDB.length} Reviews have been created📕 `);
 })
 .catch(err => {
     console.log('Error! during the creation of the Coach DB');
