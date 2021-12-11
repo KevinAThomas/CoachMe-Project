@@ -23,16 +23,15 @@ Book a session! Start your class here!! 👻
         <option value="Marseille">Marseille</option>
     </select>
 
-    {{!-- <label for="time">time:</label>
-    <input type="time" id="time" name="time" min="09:00" max="18:00" required> --}}
     <button> Search</button>
-
 </form>
-
+<hr>
 <div>
     {{#each courses}}
     <p>Category : {{category}}</p>
     <p>Location : {{location}}</p>
-    <p>Coach : {{coach.name}}</p>
+    <p>Time : {{time}}</p>
+    <p>coach :{{coach.name}}</p>
+    <hr>
     {{/each}}
 </div>

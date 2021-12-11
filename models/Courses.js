@@ -6,6 +6,7 @@ const coursesSchema = new Schema(
     location: String,
     user:[ { type : Schema.Types.ObjectId, ref: 'User'}],
     coach: { type : Schema.Types.ObjectId, ref: 'Coaching', required: true },
+    time: String
     },
     {
         timestamps: true  // created time, updated time 

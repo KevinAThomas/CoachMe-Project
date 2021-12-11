@@ -19,32 +19,37 @@ const courses = [
     {
         category: "sport",
         location: "Paris",
-        user: [mongoose.Types.ObjectId("61b257e0c78ecf27781d6acf")],
-        coach: mongoose.Types.ObjectId("61b47fd77b1ec24ee6afa9f3")
+        user: [],
+        coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a60"),
+        time: "12:30"
     },
     {
         category: "life",
         location: "Nantes",
-        user: [mongoose.Types.ObjectId("61b2585cb1c57d27c12822ab")],
-        coach: mongoose.Types.ObjectId("61b4806e7b1ec24ee6afa9fe")
+        user: [],
+        coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a63"),
+        time: "14:00"
     },
     {
         category: "career",
         location: "Lille",
-        user: [mongoose.Types.ObjectId("61b25d5fb850ca2b0a23a6b4")],
-        coach: mongoose.Types.ObjectId("61b480397b1ec24ee6afa9fc")
+        user: [],
+        coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a61"),
+        time: "15:30"
     },
     {
         category: "style",
         location: "Paris",
-        user: [mongoose.Types.ObjectId("61b25c78c38d082a0ad0d46f")],
-        coach: mongoose.Types.ObjectId("61b4804e7b1ec24ee6afa9fd")
+        user: [],
+        coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a62"),
+        time: "10:30"
     },
     {
         category: "sport",
         location: "Paris",
-        user: [mongoose.Types.ObjectId("61b25c78c38d082a0ad0d46f")],
-        coach: mongoose.Types.ObjectId("61b47fd77b1ec24ee6afa9f3")
+        user: [],
+        coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a60"),
+        time:"10:00"
     }
 ]
 
@@ -67,6 +72,19 @@ const coach = [
         category: "life"
     }
 ]
+
+
+/*
+Coaching.create(coach)
+.then(function (coachDB){
+    console.log(`${coachDB.length} have been created 😃`);
+})
+.catch(err => {
+    console.log('Error! during the creation of the Coach DB');
+    console.log('ERROR ===>', err);
+    next(err);
+})
+*/
 
 // created the coaching
 Courses.create(courses)

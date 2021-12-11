@@ -24,6 +24,18 @@ router.get("/create-reviews", (req, res, next)=> {
   }
 })
 
+router.post("urldecreationdereview", (req, res, next)=> {
+  
+  if(!req.session.currentUser){
+    res.redirect('/login')
+  }
+
+  MonModel.create()
+  .then(createdReview => {
+    res.redirect
+  })
+})
+
 /*GET user-created page*/
 router.get("/user-created", (req, res, next)=> {
   res.render('user-created');
@@ -93,11 +105,14 @@ User.findOne({email})
 })
 
 /*Book a session*/
-
 /*GET Book-a-session page*/
 router.get("/book-session", (req, res, next)=> {
-
+  if(!req.session.currentUser){
+    res.redirect('\login');
+    return
+  }
   Courses.find({})
+  .populate('coach')
   .then(courses => {
     console.log("courses from GET /book-session", courses)
     res.render('book-session', {courses}); 
@@ -116,7 +131,6 @@ router.post("/book-session", (req, res, next) => {
     })
   
 })
-
 
 //logout
 router.post('/logout', (req, res) => {
