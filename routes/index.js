@@ -29,10 +29,6 @@ router.get("/user-created", (req, res, next)=> {
   res.render('user-created');
 })
 
-/*GET Book-a-session page*/
-router.get("/book-session", (req, res, next)=> {
-  res.render('book-session');
-})
 
 /*Sign up page*/
 router.get('/signup', (req, res) => res.render('signup'))
@@ -95,6 +91,14 @@ User.findOne({email})
 })
 .catch(error => next(error));
 })
+
+/*Book a session*/
+
+/*GET Book-a-session page*/
+router.get("/book-session", (req, res, next)=> {
+  res.render('book-session');
+})
+
 
 
 //logout

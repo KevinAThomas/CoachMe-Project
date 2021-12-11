@@ -1,15 +1,29 @@
 Book a session! Start your class here!! 👻
 
     <h2>Filters</h2>
-    From:<input id ="date-from" type="date"> 
-    To:<input id = "date-to" type="date">
-    <button id ="get-date-result"> Search</button>
-
+    <label for="date">Date:</label>
+    <input id ="date" type="date"> 
 
 <label for="category">Category:</label>
 <select name="courses" id="courses">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
+    <option value="life-coach">Life coach</option>
+    <option value="Style-coach">Style coach</option>
+    <option value="Career-coach">Career coach</option>
+    <option value="Sport-Coach">Sport coach</option>
 </select>
+
+<label for="location">Location:</label>
+<select name="locations" id="locations">
+    <option value="Paris">Paris</option>
+    <option value="Nantes">Nantes</option>
+    <option value="Lyon">Lyon</option>
+    <option value="Lyon">Nice</option>
+    <option value="Bordeaux">Bordeaux</option>
+    <option value="Lille">Lille</option>
+    <option value="Marseille">Marseille</option>
+</select>
+
+<label for="time">time:</label>
+<input type="time" id="time" name="time" min="09:00" max="18:00" required>
+
+<button id ="get-date-result"> Search</button>
