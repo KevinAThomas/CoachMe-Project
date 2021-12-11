@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const Celebrity = require('../models/celebrity');
-const Movie = require('../models/Movie');
 
 const User = require('../models/User');
 const Courses = require('../models/Courses');
@@ -9,7 +7,7 @@ const Reviews = require('../models/Reviews');
 
 
 //connection for the mongoose && promises 
-mongoose.connect ('mongodb://localhost/coachMe')
+mongoose.connect ('mongodb://localhost/CoachMe-Project')
 .then(function (){
     console.log('connected to mongodb');
 })
@@ -17,69 +15,66 @@ mongoose.connect ('mongodb://localhost/coachMe')
     console.log ('Error! connection to mongodb');
 })
 
-
-const coach = [
+const courses = [
     {
-
+        category: "sport",
+        location: "Paris",
+        user: [mongoose.Types.ObjectId("61b257e0c78ecf27781d6acf")],
+        coach: mongoose.Types.ObjectId("61b47fd77b1ec24ee6afa9f3")
+    },
+    {
+        category: "life",
+        location: "Nantes",
+        user: [mongoose.Types.ObjectId("61b2585cb1c57d27c12822ab")],
+        coach: mongoose.Types.ObjectId("61b4806e7b1ec24ee6afa9fe")
+    },
+    {
+        category: "career",
+        location: "Lille",
+        user: [mongoose.Types.ObjectId("61b25d5fb850ca2b0a23a6b4")],
+        coach: mongoose.Types.ObjectId("61b480397b1ec24ee6afa9fc")
+    },
+    {
+        category: "style",
+        location: "Paris",
+        user: [mongoose.Types.ObjectId("61b25c78c38d082a0ad0d46f")],
+        coach: mongoose.Types.ObjectId("61b4804e7b1ec24ee6afa9fd")
+    },
+    {
+        category: "sport",
+        location: "Paris",
+        user: [mongoose.Types.ObjectId("61b25c78c38d082a0ad0d46f")],
+        coach: mongoose.Types.ObjectId("61b47fd77b1ec24ee6afa9f3")
     }
 ]
 
-
-const celebrities = [
+// created the New coaches models
+const coach = [
     {
         name: "Tom Cruise",
-        occupation : "actor",
-        catchPhrase : "Top gun"
+        category : "sport",
     },
     {
         name: "Kardelen",
-        occupation : "developpeur",
-        catchPhrase : "iron"
+        category: "career"
     },
     {
         name: "Oprah",
-        occupation : "comedian",
-        catchPhrase : "Hello"
+        category: "style"
     },
     {
         name: "Beyonce",
-        occupation : "singer",
-        catchPhrase : "Halo"
-    }
-]
-// created the New movie models
-const movies = [
-    {
-        title: "Titanic",
-        genre: "Drama",
-        plot: "sad"
+        category: "life"
     }
 ]
 
-
-
-//created  the celebrityDB
-Celebrity.create(celebrities)
-    .then(function(celebrityDB){ // [ {}, {}, {} ]
-    console.log(`${celebrityDB.length} have been created 😃`);
-
-        // movies[0].cast = [celebrityDB[0]._id] // movies = { cast = [1234] }
-
-        movies.map( movie => movie.cast = [celebrityDB[0]._id])
-
-        Movie.create(movies)
-        .then(function(movieDB){
-        console.log(`${movieDB.length} have been created 😃`);
-        mongoose.connection.close()
-        })
-        .catch(err => {
-            console.log('Error! during the creation of the movie DB');
-            console.log('ERROR ===>', err);
-            next(err);
-        })
-    })
-    .catch(err => {
-    console.log('Error! during the creation of the celebrities DB');
+// created the coaching
+Courses.create(courses)
+.then(function (courseDB){
+    console.log(`${courseDB.length} have been created 😃`);
+})
+.catch(err => {
+    console.log('Error! during the creation of the Coach DB');
     console.log('ERROR ===>', err);
     next(err);
-});
+})

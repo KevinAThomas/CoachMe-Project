@@ -96,7 +96,12 @@ User.findOne({email})
 
 /*GET Book-a-session page*/
 router.get("/book-session", (req, res, next)=> {
-  res.render('book-session');
+
+  Courses.find({})
+  .then(courses => {
+    res.render('book-session', {courses}); 
+  })
+  .catch(error => next(error));
 })
 
 
