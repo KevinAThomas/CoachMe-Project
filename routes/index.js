@@ -99,11 +99,23 @@ router.get("/book-session", (req, res, next)=> {
 
   Courses.find({})
   .then(courses => {
+    console.log("courses from GET /book-session", courses)
     res.render('book-session', {courses}); 
   })
   .catch(error => next(error));
 })
 
+router.post("/book-session", (req, res, next) => {
+  console.log("FROM POST =>", req.body)
+    Courses.find(req.body)
+    .populate('coach')
+    .then(courses => {
+      console.log("courses from POST /filter-session ==>", courses)
+      //res.redirect('/book-session')
+      res.render('book-session', {courses})
+    })
+  
+})
 
 
 //logout
