@@ -27,11 +27,13 @@ router.post("/create-reviews", (req, res, next)=> {
   if(!req.session.currentUser){
     res.redirect('/login')
   }
+// look to the find 
+// look to the findOne
 
   const name = req.body.coach
-  Coaching.findOne({name})
+  Coaching.find({name})
   .then(coach => {
-    const coachId = coach._id
+    const coachId = coach[0]._id // coach._id
 
     Reviews.create({
       email: req.body.email,
