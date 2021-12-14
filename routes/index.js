@@ -13,15 +13,18 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-
-//POST
-
-
 /* GET review page */
 // req.curruser -> 
 router.get("/create-reviews", (req, res, next)=> {
   if(req.session.currentUser){
-    res.render('create-reviews');
+    // chercher tous les coaches
+    // les passer en data
+    Reviews.find({})
+    .populate('coach')
+    .then(reviews => {
+      res.render('create-reviews', {reviews});
+    })
+    .catch(err => next(err))
   }else{
     res.redirect('/login');
   }
@@ -31,16 +34,18 @@ router.post("/create-reviews", (req, res, next)=> {
     res.redirect('/login')
   }
 
-  const name = req.body.coach
-  Coaching.find({name})
+  const category = req.body.category
+  Coaching.find({category})
   .then(coach => {
+    console.log("coach", coach);
     const coachId = coach[0]._id // coach._id
 
     Reviews.create({
-      category:req.body.user,
+      category,
       location:req.body.location,
       text:req.body.text,
-      coach: req.body.coachId,
+      coach: coachId,
+      user: req.session.currentUser._id
     })
     .then(createdReview => {
       res.redirect('/create-reviews');

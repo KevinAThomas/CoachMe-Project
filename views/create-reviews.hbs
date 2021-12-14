@@ -7,27 +7,16 @@
     {{!-- <label for="date">Date:</label>
     <input id ="date" type="date">  --}}
 
-    <label>
-        Username:
-        <input type="text" name="user"/>
-    </label>
+{{!--{{#each coaches}} --}}
 
-    <label>
-        Category:
-        <input type="text" name="category" />
-    </label>
-
-
-        <label>
-        coach:
-        <input type="text" name="coach" />
-    </label>
-
-
-        <label>
-        Reviews:
-        <input type="text" name="text" />
-    </label>
+<label for="category">Category:</label>
+    <select name="category" id="category">
+        <option value="life">Life</option>
+        <option value="sport">Sport</option>
+        <option value="career">Career</option>
+        <option value="style">Style</option>
+    </select>
+    
 
     <label for="location">Location:</label>
     <select name="location" id="locations">
@@ -40,16 +29,21 @@
         <option value="Marseille">Marseille</option>
     </select>
 
+            <label>
+        Reviews:
+        <input type="text" name="text" />
+    </label>
+
     <button> Create the reviews</button>
 </form>
 
 
 <ul>
-    {{#each myCeleb}}
+    {{#each reviews}}
         <p>{{this.category}}</p>
         <p>{{this.location}}</p>
         <p>{{this.text}}</p>
-        <p>{{this.coach}}</p>
+        <p>{{this.coach.name}}</p>
 
     {{/each}}
 
@@ -58,14 +52,7 @@
 
 
 <!--
-<label for="category">Category:</label>
-    <select name="category" id="category">
-        <option value="Life">Life</option>
-        <option value="Sport">Sport</option>
-        <option value="Career">Career</option>
-        <option value="Style">Style</option>
-    </select>
-    
+
     <label for="coach">coach:</label>
     <select name="coach" id="coach">
         <option value="beyonce">Beyonce</option>
@@ -73,7 +60,6 @@
         <option value="oprah">Oprah</option>
         <option value="tom-cruise">Tom cruise</option>
     </select>
-
 
         -->
     
