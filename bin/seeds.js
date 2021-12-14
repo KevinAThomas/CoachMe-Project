@@ -71,6 +71,12 @@ const coach = [
         name: "Beyonce",
         category: "life"
     }
+    ,
+    {
+        name: "Yooyoo",
+        category: "career"
+    }
+    
 ]
 
 // // created the New review models
@@ -92,8 +98,8 @@ const review = [
 ]
 
 
-
 /*
+// created the coaching
 Coaching.create(coach)
 .then(function (coachDB){
     console.log(`${coachDB.length} have been created 😃`);
@@ -105,7 +111,7 @@ Coaching.create(coach)
 })
 */
 
-// created the coaching
+// created the courses
 Courses.create(courses)
 .then(function (courseDB){
     console.log(`${courseDB.length} courses have been created 😃`);
