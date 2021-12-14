@@ -13,6 +13,10 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+
+//POST
+
+
 /* GET review page */
 // req.curruser -> 
 router.get("/create-reviews", (req, res, next)=> {
@@ -22,13 +26,10 @@ router.get("/create-reviews", (req, res, next)=> {
     res.redirect('/login');
   }
 })
-
 router.post("/create-reviews", (req, res, next)=> {
   if(!req.session.currentUser){
     res.redirect('/login')
   }
-// look to the find 
-// look to the findOne
 
   const name = req.body.coach
   Coaching.find({name})
@@ -36,22 +37,17 @@ router.post("/create-reviews", (req, res, next)=> {
     const coachId = coach[0]._id // coach._id
 
     Reviews.create({
-      email: req.body.email,
       category:req.body.user,
       location:req.body.location,
       text:req.body.text,
-      coach: coachId
-  
+      coach: req.body.coachId,
     })
     .then(createdReview => {
       res.redirect('/create-reviews');
       console.log('The review has been created:', createdReview)
     })
     .catch(err => next(err));
-
   })
-
-
 })
 
 /*GET user-created page*/

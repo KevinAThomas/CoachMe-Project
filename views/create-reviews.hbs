@@ -11,19 +11,21 @@
         Username:
         <input type="text" name="user"/>
     </label>
-    
+
     <label>
         Category:
         <input type="text" name="category" />
     </label>
-    
-    <label>
+
+
+        <label>
         coach:
         <input type="text" name="coach" />
     </label>
 
+
         <label>
-        text:
+        Reviews:
         <input type="text" name="text" />
     </label>
 
@@ -40,6 +42,43 @@
 
     <button> Create the reviews</button>
 </form>
+
+
+<ul>
+    {{#each myCeleb}}
+        <p>{{this.category}}</p>
+        <p>{{this.location}}</p>
+        <p>{{this.text}}</p>
+        <p>{{this.coach}}</p>
+
+    {{/each}}
+
+</ul>
+
+
+
+<!--
+<label for="category">Category:</label>
+    <select name="category" id="category">
+        <option value="Life">Life</option>
+        <option value="Sport">Sport</option>
+        <option value="Career">Career</option>
+        <option value="Style">Style</option>
+    </select>
+    
+    <label for="coach">coach:</label>
+    <select name="coach" id="coach">
+        <option value="beyonce">Beyonce</option>
+        <option value="kardelen">Kardelen</option>
+        <option value="oprah">Oprah</option>
+        <option value="tom-cruise">Tom cruise</option>
+    </select>
+
+
+        -->
+    
+    
+
 
 
 <!--
