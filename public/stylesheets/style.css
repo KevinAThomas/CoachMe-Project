@@ -1,8 +1,52 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+body{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100vh;
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: blue;
+  padding-right: 5px;
+  padding-left: 20px;
+
+}
+
+.imgnav{
+  width: 60px;
+  height: 60px;
+}
+
+.promo{
+  display: flex;
+  background-color: chartreuse;
+  margin:auto;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}
+
+.img{
+  width: 0px;
+  height: 500px;
+}
+
+
+li{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
 a {
-  color: #00B7FF; }
+  margin-right: 20px;
+  color: #00B7FF; 
+}
 
 /*# sourceMappingURL=style.css.map */
