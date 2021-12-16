@@ -15,77 +15,119 @@ router.get("/", (req, res, next) => {
 
 /* GET review page */
 // req.curruser -> 
-router.get("/create-reviews", (req, res, next)=> {
-  if(req.session.currentUser){
+router.get("/create-reviews", (req, res, next) => {
+  if (req.session.currentUser) {
     // chercher tous les coaches
     // les passer en data
     Reviews.find({})
-    .populate('coach')
-    .populate('user')
-    .then(reviews => {
-      res.render('create-reviews', {reviews});
-    })
-    .catch(err => next(err))
-  }else{
+      .populate('coach')
+      .populate('user')
+      .then(reviews => {
+        res.render('create-reviews', {
+          reviews
+        });
+      })
+      .catch(err => next(err))
+  } else {
     res.redirect('/login');
   }
 })
-router.post("/create-reviews", (req, res, next)=> {
-  if(!req.session.currentUser){
+router.post("/create-reviews", (req, res, next) => {
+  if (!req.session.currentUser) {
     res.redirect('/login')
   }
 
   const category = req.body.category
-  Coaching.find({category})
-  .then(coach => {
-    console.log("coach", coach);
-    const coachId = coach[0]._id // coach._id
+  Coaching.find({
+      category
+    })
+    .then(coach => {
+      console.log("coach", coach);
+      const coachId = coach[0]._id // coach._id
 
-    Reviews.create({
-      category,
-      location:req.body.location,
-      text:req.body.text,
-      coach: coachId,
-      user: req.session.currentUser._id 
+      Reviews.create({
+          category,
+          location: req.body.location,
+          text: req.body.text,
+          coach: coachId,
+          user: req.session.currentUser._id
+        })
+        .then(createdReview => {
+          res.redirect('/create-reviews');
+          console.log('The review has been created:', createdReview)
+        })
+        .catch(err => next(err));
     })
-    .then(createdReview => {
-      res.redirect('/create-reviews');
-      console.log('The review has been created:', createdReview)
-    })
-    .catch(err => next(err));
-  })
 })
 
 /*GET user-created page*/
-router.get("/user-created", (req, res, next)=> {
+router.get("/user-created", (req, res, next) => {
   res.render('user-created');
 })
-
 
 /*Sign up page*/
 router.get('/signup', (req, res) => res.render('signup'))
 router.post('/signup', (req, res, next) => {
-    const salt = bcryptjs.genSaltSync(10);
-    const encryptedPassword = bcryptjs.hashSync(req.body.password, salt);
+  const {
+    email,
+    password
+  } = req.body
 
-    User.create({
-      
-        email: req.body.email,
-        password: encryptedPassword
+  if (email === '' || password === '') {
+    res.render('signup', {
+      errorMessage: 'Please enter both username and password to signup'
+    });
+    console.log(`EMAIL= ${email}, PASSWORD= ${password}`)
+    return;
+  }
+
+  const salt = bcryptjs.genSaltSync(10);
+  const encryptedPassword = bcryptjs.hashSync(req.body.password, salt);
+
+  User.findOne({
+      email
     })
-        .then(userDB=>{
-            res.redirect('/user-created');
-            console.log('Newly created user is:', userDB);
-           // res.redirect('/');
-           // res.redirect('/user-profile');
-        })
-        .catch(err => next(err))
+    .then(user => {
+      if (user) {
+        res.render('signup', {
+          errorMessage: 'User is already exists'
+        });
+        console.log(`EMAIL= ${email}, USER= ${user}`)
+        return;
+        //   res.render('signup', {errorMessage: 'Username is already in use, please try with other username'});
+      }
+      return;
+    })
+    .catch(err => {
+      console.log(`ERR= ${err}`)
+      next(err)
+    })
+
+  User.create({
+      email,
+      password: encryptedPassword
+    })
+    .then(userDB => {
+      res.redirect('/user-created');
+      console.log('Newly created user is:', userDB);
+      // res.redirect('/');
+      // res.redirect('/user-profile');
+    })
+    .catch(err => {
+      console.log(`ERR= ${err}, EMAIL= ${email}`)
+      next(err)
+    })
+
+    .catch(err => next(err))
+
 })
 
-router.get('/user-profile', (req, res)=>{
-  res.render('user-profile' ,{userInSession :req.session.currentUser});
-})
 
+router.get('/user-profile', (req, res) => {
+  res.render('user-profile', {
+    userInSession: req.session.currentUser
+  });
+})
 
 /*Login page*/
 router.get('/login', (req, res, next) => {
@@ -93,64 +135,78 @@ router.get('/login', (req, res, next) => {
 })
 
 //.post() login route ==> to process from data
-router.post('/login', (req, res, next) =>{
-  const {email, password} = req.body;
+router.post('/login', (req, res, next) => {
+  const {
+    email,
+    password
+  } = req.body;
 
   // to see the req.session
   console.log('SESSION =====> ', req.session);
 
-  if (email === '' || password === ''){
-      res.render('login', {
-          errorMessage: 'Please enter both username and password to login'
-      });
-      return ;
+  if (email === '' || password === '') {
+    res.redirect('/login', {
+      errorMessage: 'Please enter both username and password to signup'
+    });
+    return;
   }
 
-User.findOne({email})
-.then (user=>{
-  if (!user){
-      res.render('login', {errorMessage: 'Username is not valid, please try with other username'});
-      return ;
-  }else if (bcryptjs.compareSync(password, user.password)){
-      //******* SAVE THE USER IN THE SESSION ********//
-      req.session.currentUser = user;
-      res.render('user-profile', {userInSession: req.session.currentUser});
-     // res.redirect('/user-profile');
-  }
-  else {
-      res.render('login', {errorMessage: 'Incorrect password! try again'});
-  }
-})
-.catch(error => next(error));
+  User.findOne({
+      email
+    })
+    .then(user => {
+      if (!user) {
+        res.render('login', {
+          errorMessage: 'Username is not valid, please try with other username'
+        });
+        return;
+      } else if (bcryptjs.compareSync(password, user.password)) {
+        //******* SAVE THE USER IN THE SESSION ********//
+        req.session.currentUser = user;
+        res.render('user-profile', {
+          userInSession: req.session.currentUser
+        });
+        // res.redirect('/user-profile');
+      } else {
+        res.render('login', {
+          errorMessage: 'Incorrect password! try again'
+        });
+      }
+    })
+    .catch(error => next(error));
 })
 
 /*Book a session*/
 /*GET Book-a-session page*/
-router.get("/book-session", (req, res, next)=> {
-  if(!req.session.currentUser){
+router.get("/book-session", (req, res, next) => {
+  if (!req.session.currentUser) {
     res.redirect('\login');
     return
   }
   Courses.find({})
-  .populate('coach')
-  .then(courses => {
-    console.log("courses from GET /book-session", courses)
-    res.render('book-session', {courses}); 
-  })
-  .catch(error => next(error));
+    .populate('coach')
+    .then(courses => {
+      console.log("courses from GET /book-session", courses)
+      res.render('book-session', {
+        courses
+      });
+    })
+    .catch(error => next(error));
 })
 
 router.post("/book-session", (req, res, next) => {
   console.log("FROM POST =>", req.body)
-    Courses.find(req.body)
+  Courses.find(req.body)
     .populate('coach')
     .populate('user')
     .then(courses => {
       console.log("courses from POST /filter-session ==>", courses)
       //res.redirect('/book-session')
-      res.render('book-session', {courses})
+      res.render('book-session', {
+        courses
+      })
     })
-  
+
 })
 
 /*GET booked page*/
