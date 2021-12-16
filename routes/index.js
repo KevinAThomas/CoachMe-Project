@@ -21,6 +21,7 @@ router.get("/create-reviews", (req, res, next)=> {
     // les passer en data
     Reviews.find({})
     .populate('coach')
+    .populate('user')
     .then(reviews => {
       res.render('create-reviews', {reviews});
     })
@@ -45,7 +46,7 @@ router.post("/create-reviews", (req, res, next)=> {
       location:req.body.location,
       text:req.body.text,
       coach: coachId,
-      user: req.session.currentUser._id
+      user: req.session.currentUser._id 
     })
     .then(createdReview => {
       res.redirect('/create-reviews');
@@ -68,6 +69,7 @@ router.post('/signup', (req, res, next) => {
     const encryptedPassword = bcryptjs.hashSync(req.body.password, salt);
 
     User.create({
+      
         email: req.body.email,
         password: encryptedPassword
     })
@@ -142,6 +144,7 @@ router.post("/book-session", (req, res, next) => {
   console.log("FROM POST =>", req.body)
     Courses.find(req.body)
     .populate('coach')
+    .populate('user')
     .then(courses => {
       console.log("courses from POST /filter-session ==>", courses)
       //res.redirect('/book-session')
@@ -149,6 +152,12 @@ router.post("/book-session", (req, res, next) => {
     })
   
 })
+
+/*GET booked page*/
+router.get("/booked", (req, res, next) => {
+  res.render("booked");
+})
+
 
 //logout
 router.post('/logout', (req, res) => {
