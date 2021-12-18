@@ -1,11 +1,11 @@
-<link rel = "stylesheet" href= "/stylesheets/book-sessions_style.css"/>
+<link rel = "stylesheet" href= "/stylesheets/book_sessions.css">
 
+<div class = "book-container">
+<img class = "book-class" src= "images/class.jpg" alt= "book-class-image">
+</div
 
-Book a session! Start your class here!! 👻
+<h2>Filters</h2>
 <form action="/book-session" method="POST">
-    <h2>Filters</h2>
-    {{!-- <label for="date">Date:</label>
-    <input id ="date" type="date">  --}}
 
     <label for="category">Category:</label>
     <select name="category" id="courses">
@@ -36,8 +36,8 @@ Book a session! Start your class here!! 👻
     <p>Time : {{time}}</p>
     <p>coach :{{coach.name}}</p>
 
-    <button>
-<a href="/booked">Book a session!!</a>
+    <button class = "book-btn">
+<a href="/booked">Book a session</a>
 </button>
     <hr>
     {{/each}}

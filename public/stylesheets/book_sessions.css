@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap');
+
+body{
+    background-color: #FFF6DA;
+}
+
+h2{
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color: #042F4B;
+}
+
+.book-class{
+    min-height: 100%;
+    min-width: 1024px;
+    padding-left:0; 
+    padding-right:0; 
+
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+}
+
+
+.book-btn {
+    background-color: #042F4B;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    margin:auto;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+a:link { 
+    text-decoration: none; 
+}

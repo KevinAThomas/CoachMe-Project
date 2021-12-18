@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap');
 
 
+body {
+  font-family: 'Montserrat', sans-serif;
+  padding:0;
+  margin:0;
+}
+
+
+a {
+  color: white; }
+
 /*# sourceMappingURL=style.css.map */
