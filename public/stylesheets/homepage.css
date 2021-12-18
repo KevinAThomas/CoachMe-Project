@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap");
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    height: 100vh;
+  }
+
+/**/
+/*NAV*/
+/**/
+  
+  nav{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    background-color: #042F4B;
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    margin: 0px;
+  }
+
+  .navh1{
+    font-family:"Sacramento", cursive;
+    color: white;
+    font-size: 100px;
+}
+  
+  .imgnav{
+    width: 180px;
+    height: 180px;
+    border-radius: 100px;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+  li{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  a {
+    color: #00B7FF; 
+    text-decoration: none;
+    color: white;
+  }
+
+  #nava{
+    margin-right: 20px;
+  }
+
+/**/
+/*CENTRAL DIV*/
+/**/
+
+  .centralimg{
+    align-items:center;
+    background-image: url("https://images.unsplash.com/photo-1620128292714-ace2c04026ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin:0px;
+    padding-top: 500px;
+    padding-bottom: 500px;
+    }
+
+.b{
+    font-size: 20px;
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    bottom: 400px;
+    background-color: #042F4B;
+    border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px;
+    box-shadow: 0 2px 25px;
+}
+
+div > article > button{
+    background-color: #042F4B;
+    border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px;
+}
+
+/**/
+/*COACHING DIV*/
+/**/
+
+section{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction:column
+}
+
+div{
+    display: flex;
+    margin:auto;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #coachdiv{
+      flex-direction: row;
+      background-color: #FBC99D;
+      border-radius: 8px;
+      width: 50%;
+      margin-bottom: 10px;
+      font-family: "Montserrat", sans-serif;
+      margin-left: 0px;
+  }
+
+section>div>img{
+    width: 500px;
+    height: 300px;
+}
+
+article > h1{
+    text-align: center;
+}
+
+article{
+    width: 80%;
+    text-align: center;
+    align-items: center;
+}
+
+footer{
+    background-color: #ED1250;
+    display: flex;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+footer > li > a{
+    margin-right: 50px;
+}
+
+
+  
+  
+  
+ 
+  
+  /*# sourceMappingURL=style.css.map */
