@@ -67,6 +67,8 @@ router.get("/user-created", (req, res, next) => {
 
 /*Sign up page*/
 router.get('/signup', (req, res) => res.render('signup'))
+
+
 router.post('/signup', (req, res, next) => {
   const {
     email,
@@ -84,41 +86,37 @@ router.post('/signup', (req, res, next) => {
   const salt = bcryptjs.genSaltSync(10);
   const encryptedPassword = bcryptjs.hashSync(req.body.password, salt);
 
-  User.findOne({
-      email
-    })
-    .then(user => {
-      if (user) {
-        res.render('signup', {
-          errorMessage: 'User is already exists'
-        });
-        console.log(`EMAIL= ${email}, USER= ${user}`)
-        return;
-        //   res.render('signup', {errorMessage: 'Username is already in use, please try with other username'});
-      }
+
+User.findOne({email})
+  .then(user => {
+    
+    if (user) {
+      res.render('signup', {errorMessage: 'User is already exists'});
+      console.log(`EMAIL= ${email}, USER= ${user}`)
       return;
-    })
-    .catch(err => {
-      console.log(`ERR= ${err}`)
-      next(err)
-    })
+    }
 
-  User.create({
-      email,
-      password: encryptedPassword
-    })
-    .then(userDB => {
-      res.redirect('/user-created');
-      console.log('Newly created user is:', userDB);
-      // res.redirect('/');
-      // res.redirect('/user-profile');
-    })
-    .catch(err => {
-      console.log(`ERR= ${err}, EMAIL= ${email}`)
-      next(err)
-    })
+    // fix: create have to be inside User.findone promise  
+    User.create({ email, password: encryptedPassword })
+      .then(userDB => {
+        res.redirect('/user-created');
+        console.log('Newly created user is:', userDB);
+        // res.redirect('/');
+        // res.redirect('/user-profile');
+      })
+      .catch(err => {
+        console.log(`ERR= ${err}, EMAIL= ${email}`)
+        next(err)
+      })
+      .catch(err => next(err))
 
-    .catch(err => next(err))
+  })
+  .catch(err => {
+    console.log(`ERR= ${err}`)
+    next(err)
+  })
+
+
 
 })
 
