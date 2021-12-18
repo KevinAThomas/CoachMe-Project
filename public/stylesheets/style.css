@@ -1,5 +1,11 @@
-body{
-    margin:0;
-    padding:0;
-}
+body {
+  padding: 0;
+  margin: 0; }
+
+a {
+  color: white; }
+
+a:link {
+  text-decoration: none; }
+
 /*# sourceMappingURL=style.css.map */

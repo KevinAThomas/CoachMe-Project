@@ -54,9 +54,8 @@ body{
     color: #042F4B;
     font-size: 5.625rem;
     text-align:center;
-    width:50%;
-    margin:19%;
-    display: block;
+    padding:200px;
+    display: inline-block;
     font-family: 'Sacramento', cursive;
 }
 
