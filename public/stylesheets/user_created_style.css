@@ -20,20 +20,16 @@ h2{
     margin: 10px 20px;
 }
 
-
-
 /*img*/
 .book-class{
     width: unset;
     height:30px;
     position: 0, 0;
     background-repeat: no-repeat;
-        padding-top: 5%;
+    padding-top: 5%;
     position: relative
     
 }
-
-
 
 .new-user{
     width: 20%;
@@ -52,7 +48,7 @@ h2{
 .user-btn-container{
     text-align: center;
 }
-.user-created {
+.user-created-btn {
     background-color: #042F4B;
     border: none;
     border-radius: 12px;

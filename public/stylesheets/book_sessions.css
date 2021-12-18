@@ -2,31 +2,57 @@
 
 body{
     background-color: #FFF6DA;
+    font-family: 'Montserrat', sans-serif;
+    color: #042F4B;
+
 }
 
-h2{
+.top-letter {
+    position: absolute;
+    color: #042F4B;
+    font-size: 5.625rem;
+    text-align:center;
+    width:50%;
+    margin:19%;
+    display: block;
+    font-family: 'Sacramento', cursive;
+}
+
+h2 {
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     color: #042F4B;
 }
 
-.book-class{
-    min-height: 100%;
-    min-width: 1024px;
-    padding-left:0; 
-    padding-right:0; 
-
-    /* Set up proportionate scaling */
-    width: 100%;
-    height: auto;
+.labels{
+    font-size:20px;
+    font-family: 'Montserrat', sans-serif;
+    color: #042F4B;
+    padding-bottom:10px;
 }
 
+/*top container (photo) */
+.book-container{
+background-position: 0 0;
+background-repeat: no-repeat;
+background-size: cover;
+height: 650px;
+position:relative;
+}
+
+.book-class{
+    min-width: 1024px;
+    opacity:0.5;
+    position: absolute;
+    /* Set up proportionate scaling */
+    width: 100%;
+    height:100%;
+}
 
 .book-btn {
-    background-color: #042F4B;
+    background-color: #f39c12;
     border: none;
     border-radius: 12px;
-    color: white;
     margin:auto;
     padding: 15px 32px;
     text-align: center;
@@ -36,7 +62,140 @@ h2{
     font-family: 'Montserrat', sans-serif;
 }
 
+a{
+    color: #042F4B;
+}
 
-a:link { 
+a:link {
     text-decoration: none; 
+}
+
+/*form - css*/
+
+.all{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.body-container{
+    align-content:center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    padding:50px;
+    justify-content: center;
+}
+
+/*Select -form*/
+
+.search-container{
+    align-content:center;
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    justify-content: center;
+
+}
+
+select {
+    /* Reset Select */
+    appearance: none;
+    outline: 0;
+    border: 0;
+    align-items:center;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: #fff;
+    background-color: #183344;
+    background-image: none;
+    cursor: pointer;
+    }
+  /* Remove IE arrow */
+select::-ms-expand {
+    display: none;
+}
+  /* Custom Select wrapper */
+    .select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    border-radius: 12px;
+    overflow: hidden;
+}
+  /* Arrow */
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: #042F4B;
+    transition: .25s all ease;
+    pointer-events: none;
+}
+  /* Transition */
+.select:hover::after {
+    color: #f39c12;
+    }
+
+
+/*Search btn effects*/
+.search-div{
+    padding-top:15px;
+}
+
+.search-btn{
+    border-radius: 12px;
+    background-color: #042F4B;
+    border: none;
+    color: white;
+    margin:auto;
+    padding: 15px 32px;   
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.5s;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.search-btn:hover {
+    background-color: #f39c12;
+}
+
+/*form for the courses*/
+
+#structure > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 75px 0;
+}
+
+.service-box {
+    font-size: 1.7em;
+    text-align: center;
+    border: 2px solid #EEE;
+    border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 10px 0 #EEE;
+    margin-top: 50px;
+    background-color:#042F4B;
+    color:white;
+    padding: 10px;
+    width: 40%;
+}
+
+.bookeda{
+    font-size:20px;
+    font-weight: bold;
 }

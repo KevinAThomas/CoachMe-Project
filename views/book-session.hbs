@@ -2,20 +2,28 @@
 
 <div class = "book-container">
 <img class = "book-class" src= "images/class.jpg" alt= "book-class-image">
-</div
+<div class = "h1-book">
+<h1 class = "top-letter">Book your session</h1>
+</div>
+</div>
 
-<h2>Filters</h2>
+<div class = "body-container">
+
+    <div class= "search-container">
 <form action="/book-session" method="POST">
-
-    <label for="category">Category:</label>
+<h1>Find your best coaches!</h1>
+    <label class = "labels" form="category"> Category:</label>
+    <div class= "select">
     <select name="category" id="courses">
         <option value="life">Life coach</option>
         <option value="style">Style coach</option>
         <option value="career">Career coach</option>
         <option value="sport">Sport coach</option>
     </select>
+</div>
 
-    <label for="location">Location:</label>
+    <label class= "labels" form="location">Location:</label>
+    <div class= "select">
     <select name="location" id="locations">
         <option value="Paris">Paris</option>
         <option value="Nantes">Nantes</option>
@@ -25,20 +33,23 @@
         <option value="Lille">Lille</option>
         <option value="Marseille">Marseille</option>
     </select>
-
-    <button> Search</button>
+        </div>
+        <div class = "search-div">
+            <button class = "search-btn"> Search</button>
+        </div>
 </form>
-<hr>
-<div>
-    {{#each courses}}
-    <p>Category : {{category}}</p>
-    <p>Location : {{location}}</p>
-    <p>Time : {{time}}</p>
-    <p>coach :{{coach.name}}</p>
+    </div>
 
+    {{#each courses}}
+    <article class="service-box">
+    <h5>- Category : {{category}}</h5>
+    <h5>- Location : {{location}}</h5>
+    <h5>- Time :  {{time}}</h5>
+    <h5>- Coach : {{coach.name}}</h5>
     <button class = "book-btn">
-<a href="/booked">Book a session</a>
+<a class = "bookeda"href="/booked">Book a session</a>
+</article>
 </button>
-    <hr>
     {{/each}}
 </div>
+
