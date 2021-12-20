@@ -92,8 +92,8 @@ position:relative;
 
 .book-btn {
     background-color: #ecf0f3;
-    border: none;
     border-radius: 12px;
+    border:none;
     margin:auto;
     padding: 15px 32px;
     text-align: center;
@@ -102,6 +102,14 @@ position:relative;
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
 }
+
+.book-btn:hover {
+  box-shadow:20px;
+  border-style:0.5px;
+  color:#042F4B;
+  box-shadow: 4px 4px 2px #cbced1;
+  }
+
 
 a{
     color: #042F4B;
@@ -192,7 +200,7 @@ select::-ms-expand {
 .search-btn{
     border-radius: 12px;
     background-color: #042F4B;
-    border: none;
+    border: solid;
     color: white;
     margin:auto;
     padding: 15px 32px;   
@@ -205,8 +213,12 @@ select::-ms-expand {
 }
 
 .search-btn:hover {
-    background-color: #f39c12;
-}
+  font-weight: bold;
+    background-color: #ecf0f3;
+    border-style:0.5px;
+    color:#042F4B;
+    border-color:#042F4B;
+  }
 
 /*form for the courses*/
 
@@ -240,3 +252,4 @@ select::-ms-expand {
     font-size:20px;
     font-weight: bold;
 }
+
