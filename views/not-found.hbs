@@ -1,2 +1,36 @@
-<h1>404 Error</h1>
-<h2>This route does not exist on the app! Check if everything is ok!</h2>
+<link rel="stylesheet" href="/stylesheets/not-found.css" />
+
+<!--NAV BAR-->
+<header>
+  <div>
+    <div>
+      <img class="logo" src="images/logo.svg" alt="logo" />
+    </div>
+    <span> My Coach </span>
+
+    <nav class="nav-bar">
+      <ul class="nav-bar-ul">
+        <li><a href="#"> Coaches </a></li>
+        <li><a href="#"> Reviews </a></li>
+        <li><a href="/signup"> Signup </a></li>
+        <li> <a href="/login">Login</a></li>
+        <li>
+          <form id="logout-form" action="/logout" method="POST">
+            <a href="/logout">Logout</a>
+          </form></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="user-created-container">
+  <h2>404 Error</h2>
+  <h3>This route does not exist on the app! Check if everything is ok!</h3>
+  <img class="no-route" src="/images/404.png" />
+</div>
+
+<div class="user-btn-container">
+  <button class="user-created-btn">
+    <a href="/">Go to homepage! </a>
+  </button>
+</div>
