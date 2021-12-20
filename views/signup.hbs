@@ -1,20 +1,54 @@
-<div id="signup">
+<link rel="stylesheet" href="/stylesheets/signup.css" />
+
+<header>
+  <div>
+    <div>
+      <img class="logo" src="images/logo.svg" alt="logo" />
+    </div>
+    <span> My Coach </span>
+
+    <nav class="nav-bar">
+      <ul class="nav-bar-ul">
+        <li><a href="#"> Coaches </a></li>
+        <li><a href="#"> Reviews </a></li>
+        <li><a href="/signup"> Signup </a></li>
+        <li> <a href="/login">Login</a></li>
+        <li>
+          <form id="logout-form" action="/logout" method="POST">
+            <a href="/logout">Logout</a>
+          </form></li>
+      </ul>
+
+    </nav>
+  </div>
+</header>
+
+<!---->
+<div id="form">
+  <div class="container">
+    <div class="brand-logo"></div>
     <h2>Signup</h2>
     <form action="/signup" method="POST">
-    <label>
-        Email
-        <input type="text" name="email" placeholder="Your useremail" />
-    </label>
+      <label class="labels" for="input-email">Email</label>
+      <input
+        type="text"
+        id="input-email"
+        name="email"
+        placeholder="example@test.com"
+      />
 
-    <label>
-        Password
-        <input type="password" name="password" id="input-password" placeholder="********" />
-    </label>
+      <label class="labels" for="input-password">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="input-password"
+        placeholder="********"
+      />
+      <button class="submit-btn" type="submit">Sign up</button>
 
-    <button>Create account</button>
+      {{#if errorMessage}}
+        <p> class="error">{{errorMessage}}</p>
+      {{/if}}
     </form>
-
-    {{#if errorMessage}}
-    <p>{{errorMessage}}</p>
-    {{/if}}
+  </div>
 </div>
