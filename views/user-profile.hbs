@@ -1,6 +1,27 @@
+<link rel="stylesheet" href="/stylesheets/user-profile.css" />
 
+<!--Nav bar -->
+<header>
+  <div>
+    <div>
+      <img class="logo" src="images/logo.svg" alt="logo" />
+    </div>
+            <a href="/"><span>My coach</span></a>
+    <nav class="nav-bar">
+      <ul class="nav-bar-ul">
+        <li><a href="#"> Coaches </a></li>
+        <li><a href="#"> Reviews </a></li>
+        <li><a href="/signup"> Signup </a></li>
+        <li> <a href="/login">Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!--ORIGNINAL FORM
+<div class = "main-container">
 {{#if userInSession}}
-    <h2>Welcome, {{ userInSession.email }}!</h2>
+    <h2>Hello, {{ userInSession.email }}!</h2>
 <p>This is your profile page my friend!😃</p>
     <button>
         <a href="/user-profile">Reload the page</a>
@@ -13,6 +34,58 @@
     </button>
         <form id="logout-form" action="/logout" method="POST">
     <button>Logout</button>
+
 {{else}}
-    <p>Still no logged in user, sorry!</p>
+    <p>Sorry! still no logged in user.</p>
 {{/if}}
+</div>
+ -->
+
+<div id= "form">
+    <div class = "container">
+        <div class = "user-logo"></div>
+                {{#if userInSession}}
+    <h1>Hello, {{ userInSession.email }}!</h1>
+    <button>
+        <a href="/user-profile">Reload the page</a>
+    </button>
+    <button>
+        <a href= "/create-reviews">write a review 💡! </a>
+    </button>
+    <button>
+        <a href= "/book-session">Book a session📒! </a>
+    </button>
+        <form id="logout-form" action="/logout" method="POST">
+    <button>Logout</button>
+
+
+{{else}}
+    <p>Sorry! still no logged in user.</p>
+{{/if}}
+
+</div>
+ <div class = "container">
+        <div class = "user-logo"></div>
+                {{#if userInSession}}
+    <h1>Hello, {{ userInSession.email }}!</h1>
+    <button>
+
+        <a href="/user-profile">Reload the page</a>
+    </button>
+    <button>
+        <a href= "/create-reviews">write a review 💡! </a>
+    </button>
+    <button>
+        <a href= "/book-session">Book a session📒! </a>
+    </button>
+        <form id="logout-form" action="/logout" method="POST">
+    <button>Logout</button>
+
+{{else}}
+    <p>Sorry! still no logged in user.</p>
+{{/if}}
+
+</form></div>
+
+
+   
