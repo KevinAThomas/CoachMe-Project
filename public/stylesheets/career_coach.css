@@ -1,0 +1,125 @@
+/*
+/* HEADER & NAV
+/**/
+
+header > div {
+    background-color:#042F4B;
+    padding: 0 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    border-bottom: 1px solid lightgray;
+  }
+  
+  header > div > div{
+    margin: 0px;
+  }
+    
+    span{
+      display: inline-block;
+      font-size:20px;
+      color: white;
+    }
+  
+  body{
+    margin: 0px;
+  }
+  
+    nav {
+      width: 600px;
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color:white;
+    }
+    
+    .logo {
+      padding:20px;
+      width: 30px;
+    }
+  
+  /*
+  /* SECTION 
+  /**/
+  
+  section{
+    display: flex;
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: "Montserrat", sans-serif;
+    color: #042F4B;
+  }
+  
+  section > div > h1{
+    font-size: 70px;
+    margin-top: 0px;
+  }
+  
+  section > div{
+    margin: auto;
+    width: 30%;
+    text-align: justify;
+  }
+  
+  section > div > img{
+    width: 600px;
+    height: 500px;
+    border: 10px solid #042F4B;
+  }
+  
+  button{
+    background-color:#042F4B;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  
+  section > div > ul{
+    margin-bottom: 40px;
+  }
+  
+  .coachp{
+    margin-bottom: 40px;
+  }
+  
+  /*
+  /* FOOTER
+  /**/
+  
+  footer{
+      background-color: #042F4B;
+      display: flex;
+      justify-content: center;
+      font-family: "Montserrat", sans-serif;
+      font-weight: bold;
+  }
+  
+  footer > ul{
+    display: flex;
+    padding:0px;
+    list-style: none;
+    justify-content: space-between;
+  }
+  
+  footer > ul > li{
+    margin-right: 20px;
+  }
+  
+  a{
+    text-decoration: none;
+    color: white;
+  } 
+  
