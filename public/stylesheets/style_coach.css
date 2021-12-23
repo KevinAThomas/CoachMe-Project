@@ -65,8 +65,13 @@ section{
 }
 
 section > div > h1{
-  font-size: 70px;
+  font-size: 60px;
   margin-top: 0px;
+  border: 4mm ridge lightgrey;
+  border-radius: 20px;
+  background-color: #042F4B;
+  color: white;
+  text-align: center;
 }
 
 section > div{

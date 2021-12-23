@@ -76,7 +76,7 @@ header > div > div{
     
 
 .b{
-  border: 10px solid #042F4B;
+  border: 4mm ridge #042F4B;
   background-color: white;
   border-radius: 20px;
   box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
