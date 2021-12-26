@@ -26,21 +26,13 @@
 
 <div id= "form">
     <div class = "container">
-        <div class = "user-logo"></div>
+      <div class = "user-logo"></div>
                 {{#if userInSession}}
-    <h1>Hello, {{ userInSession.email }}!</h1>
-    <button>
-        <a href="/user-profile">Reload the page</a>
-    </button>
-    <button>
-        <a href= "/create-reviews">write a review 💡! </a>
-    </button>
-    <button>
-        <a href= "/book-session">Book a session📒! </a>
-    </button>
-        <form id="logout-form" action="/logout" method="POST">
-    <button>Logout</button>
+    <h1>{{ userInSession.email }}'s profile :</h1>
 
+    <h3>joined date: {{userInSession.createdAt}}</h3>
+    <h3>updated date: {{userInSession.updatedAt}}</h3>
+    <button>
 
 {{else}}
     <p>Sorry! still no logged in user.</p>
@@ -48,11 +40,10 @@
 
 </div>
  <div class = "container">
-        <div class = "user-logo"></div>
+      <div class = "user-logo"></div>
                 {{#if userInSession}}
     <h1>Hello, {{ userInSession.email }}!</h1>
     <button>
-
         <a href="/user-profile">Reload the page</a>
     </button>
     <button>
@@ -63,6 +54,7 @@
     </button>
         <form id="logout-form" action="/logout" method="POST">
     <button>Logout</button>
+
 
 {{else}}
     <p>Sorry! still no logged in user.</p>

@@ -25,11 +25,33 @@ const courses = [
     },
     {
         category: "life",
+        location: "Paris",
+        user: [],
+        coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a63"),
+        time: "12:30"
+    },
+    {
+        category: "career",
+        location: "Paris",
+        user: [],
+        coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a61"),
+        time: "15:30"
+    },
+    {
+        category: "sport",
+        location: "Paris",
+        user: [],
+        coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a60"),
+        time: "15:30"
+    },
+    {
+        category: "life",
         location: "Nantes",
         user: [],
         coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a63"),
         time: "14:00"
     },
+
     {
         category: "career",
         location: "Lille",
@@ -39,10 +61,24 @@ const courses = [
     },
     {
         category: "style",
+        location: "Lille",
+        user: [],
+        coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a62"),
+        time: "16:30"
+    },
+    {
+        category: "style",
         location: "Paris",
         user: [],
         coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a62"),
         time: "10:30"
+    },
+    {
+        category: "Life",
+        location: "Paris",
+        user: [],
+        coach: mongoose.Types.ObjectId("61b4ae20d20aa42a62cb6a63"),
+        time:"13:00"
     },
     {
         category: "sport",
@@ -56,26 +92,22 @@ const courses = [
 // created the New coaches models
 const coach = [
     {
-        name: "Tom Cruise",
+        name: "Will",
         category : "sport",
     },
     {
-        name: "Kardelen",
+        name: "Emily",
         category: "career"
     },
     {
-        name: "Oprah",
+        name: "Laura",
         category: "style"
     },
     {
-        name: "Beyonce",
+        name: "Neil",
         category: "life"
     }
     ,
-    {
-        name: "Yooyoo",
-        category: "career"
-    }
     
 ]
 
