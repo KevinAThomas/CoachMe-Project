@@ -97,20 +97,8 @@
     display:flex;
     flex-basis: 0;
     flex: 1 1 0px;
-    padding:70px 150px;
+    padding:70px 100px;
   }
-
-  /*
-  .third-container{
-    display:flex;
-    flex-basis: 0;
-    flex: 1 1 0px;
-    algin-content:space-around;
-    justify-cotent:space-evenly;
-    flex-wrap:wrap;
-    flex-direction:column;
-  }
-  */
   
   .third-container img {
     width: 50px;
@@ -144,6 +132,73 @@
   .fourth-div {
     margin:30px; 
   }
+
+  .coach-btn{
+      padding-bottom: 10px; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color:#042F4B;
+      color: white;
+      text-decoration: none; 
+      box-shadow:8px 8px 0 #dde1e4; 
+    }
+
+  .coach-a{
+    background-color:#042F4B;
+    padding: 3px 10px;
+
+  }
+  .last-button {
+    margin-right: auto;  
+    margin-left:auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .last-button a {
+    background-color:#042F4B;
+    box-shadow:8px 8px 0 #dde1e4;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;  
+  }
+
+
+  /**********section 4**********/
+  
+  .fourth-section{
+    background-color:#ecf0f3;
+  }
+
+  .fourth-container {
+    display:flex;
+    flex-basis: 0;
+    flex: 1 1 0px;
+    align-content:space-around;
+    justify-content:space-evenly;
+    flex-wrap:nowrap;
+    flex-direction:row;
+  }
+  
+  .fourth-container img {
+    width: 850px;
+    height: 500px;
+  }
+
+  .fourth-container h3 {
+    text-align:left ;
+    color:#042F4B ;
+  }
+  
+  .fourth-container p {
+    font-size: 20px;
+    text-align:left;
+    line-height: 1.5;
+  }
+  
+  /******* 4 div elements*******/
   
   .last-button {
     padding-bottom: 100px; 
@@ -163,3 +218,12 @@
     Padding:10px 100px; 
     text-decoration: none;  
   }
+
+.fourth-first-div{
+  margin:30px;
+  padding:100px;
+  }
+.underline {
+  border-bottom: solid 3px #042F4B;
+  width: 50px;
+}
