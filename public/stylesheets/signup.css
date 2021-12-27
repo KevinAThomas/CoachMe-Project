@@ -101,7 +101,7 @@ input {
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
 }
 
-button {
+.submit-btn {
   margin-top: 20px;
   color:white;
   background: #042F4B;
@@ -113,6 +113,6 @@ button {
   transition: 0.5s;
 }
 
-button:hover {
+.submit-btn:hover {
   box-shadow: none;
 }
