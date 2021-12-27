@@ -143,7 +143,7 @@ input {
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
 }
 
-button {
+.profile-option {
   margin-top: 20px;
   color:white;
   background: #042F4B;
@@ -155,6 +155,6 @@ button {
   transition: 0.5s;
 }
 
-button:hover {
+.profile-option:hover {
   box-shadow: none;
 }

@@ -1,66 +1,5 @@
 <link rel="stylesheet" href="/stylesheets/create-reviews.css" />
 
-<!--
-<div class="book-container">
-  <img class="book-class" src="images/reviews.jpg" alt="book-class-image" />
-  <h1 class="top-letter">Reviews from our clients! </h1>
-</div>
-
-<div class="body-container">
-
-  <form action="/create-reviews" method="POST">
-    {{! <label for="date">Date:</label>
-    <input id ="date" type="date">  }}
-
-    {{!--{{#each coaches}} --}}
-
-    <label for="category">Category:</label>
-    <div class="select">
-      <select name="category" id="category">
-        <option value="life">Life</option>
-        <option value="sport">Sport</option>
-        <option value="career">Career</option>
-        <option value="style">Style</option>
-      </select>
-    </div>
-
-    <label for="location">Location:</label>
-    <div class="select">
-      <select name="location" id="locations">
-        <option value="Paris">Paris</option>
-        <option value="Nantes">Nantes</option>
-        <option value="Lyon">Lyon</option>
-        <option value="Lyon">Nice</option>
-        <option value="Bordeaux">Bordeaux</option>
-        <option value="Lille">Lille</option>
-        <option value="Marseille">Marseille</option>
-      </select>
-    </div>
-
-    <label>
-      Reviews:
-      <input type="text" name="text" />
-    </label>
-
-    <button> Create the reviews</button>
-  </form>
-
-  <ul>
-    {{#each reviews}}
-      <article class="service-box">
-        <p>- Category:{{this.category}}</p>
-        <p>- Place:{{this.location}}</p>
-        <p>- Reviews: {{this.text}}</p>
-        <p>- Coach name:{{this.coach.name}}</p>
-        <p>- Username:{{this.user.email}}</p>
-      </article>
-    {{/each}}
-
-  </ul>
-</div>
-
--->
-
 <!--The form -->
 
 <div id="container">
@@ -74,7 +13,7 @@
       ></path>
     </svg>
   </div>
-  <form action="/create-reviews" method="POST" id="contact_form">
+  <form class="forms" action="/create-reviews" method="POST" id="contact_form">
 
     <label for="category"></label>
     <div class="subject">

@@ -215,7 +215,7 @@ textarea {
   position: relative;
 }
 
-form {
+.forms {
   padding: 37.5px;
   margin: 50px 0;
 }
@@ -431,3 +431,4 @@ textarea {
     margin: -0.512em auto;
     width: 40px;
 }
+

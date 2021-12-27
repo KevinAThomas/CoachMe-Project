@@ -39,21 +39,21 @@
 {{/if}}
 
 </div>
- <div class = "container">
-      <div class = "user-logo"></div>
+<div class = "container">
+<div class = "user-logo"></div>
                 {{#if userInSession}}
     <h1>Hello, {{ userInSession.email }}!</h1>
-    <button>
+    <button class = "profile-option">
         <a href="/user-profile">Reload the page</a>
     </button>
-    <button>
+    <button class= "profile-option">
         <a href= "/create-reviews">write a review 💡! </a>
     </button>
-    <button>
+    <button class = "profile-option">
         <a href= "/book-session">Book a session📒! </a>
     </button>
         <form id="logout-form" action="/logout" method="POST">
-    <button>Logout</button>
+    <button class = "profile-option">Logout</button>
 
 
 {{else}}
