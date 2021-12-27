@@ -1,32 +1,9 @@
 <link rel="stylesheet" href="/stylesheets/user-profile.css" />
 
 
-<!--ORIGNINAL FORM
-<div class = "main-container">
-{{#if userInSession}}
-    <h2>Hello, {{ userInSession.email }}!</h2>
-<p>This is your profile page my friend!😃</p>
-    <button>
-        <a href="/user-profile">Reload the page</a>
-    </button>
-    <button>
-        <a href= "/create-reviews">write a review 💡! </a>
-    </button>
-    <button>
-        <a href= "/book-session">Book a session📒! </a>
-    </button>
-        <form id="logout-form" action="/logout" method="POST">
-    <button>Logout</button>
-
-{{else}}
-    <p>Sorry! still no logged in user.</p>
-{{/if}}
-</div>
--->
-
 <div id= "form">
     <div class = "container">
-      <div class = "user-logo"></div>
+        <div class = "user-logo"></div>
                 {{#if userInSession}}
     <h1>{{ userInSession.email }}'s profile :</h1>
 
