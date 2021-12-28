@@ -219,6 +219,12 @@ router.post('/logout', (req, res) => {
   res.redirect('/');
 });
 
+////COACH ALL PAGE/////////////////////////
+
+router.get("/coach", (req, res, next) => {
+  res.render("coach")
+});
+
 
 /////////////////////////////////////COACH ME/////////////////////////////////////
 //step1. create the 4 coach pages
