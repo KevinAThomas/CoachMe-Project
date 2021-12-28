@@ -252,7 +252,7 @@
   color: white;
   flex-wrap: nowrap;
   flex-direction: row;
-  border-bottom: 1px solid lightgray; }
+}
 
 .footer span {
   display: inline-block;
@@ -271,8 +271,10 @@
 
 .footer nav a {
   text-decoration: none;
-  color: white; }
+  color: white; 
+}
 
 .footer-logo {
   padding: 20px;
-  width: 30px; }
+  width: 30px; 
+}
