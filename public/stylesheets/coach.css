@@ -1,3 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+/*****Section 1******/
+
+.first-section {
+    height:500px;
+    font-family: 'Poppins';
+    font-size:20px;
+    background-color:#ecf0f3;
+}
+.container {
+    display:flex; 
+    flex-direction: column;
+    padding-top:30px; 
+    }
+    .build {
+    font-size: 4.5rem;
+    line-height: 1.25;
+    margin: 80px 0px;
+    text-align: center;
+  }
+  
+  .first-article {
+    text-align: center;
+    padding: 0 50px; 
+  }
+  
+  .second-button {
+      color: black;
+      border: none;
+      padding-top: 40px;
+      text-align: center;
+      border: none;
+      outline:rgba(0, 0, 0, 0.05);
+    }
+  
+  .second-button a {
+    margin: 15px; 
+  }
+  .booksessions {
+    padding: 20px 60px;
+    background-color:#042F4B;
+    box-shadow:8px 8px 0 #dde1e4;
+    border-radius: 0;
+    text-align: center;
+    font-weight: bold;
+    color:white;
+    text-decoration: none;
+}
 
 
   /**********section 5**********/
@@ -7,6 +56,7 @@
   }
 
   .fifth-container {
+    padding:100px;
     display:flex;
     flex-basis: 0;
     flex: 1 1 0px;
@@ -60,4 +110,29 @@
 .underline {
   border-bottom: solid 3px #042F4B;
   width: 50px;
+}
+
+
+
+/*//////////////coach button/////////*/
+
+.coach-button {
+    color: black;
+    border: none;
+    padding-right:220px;
+    padding-top: 40px;
+    text-align: center;
+    border: none;
+    outline:rgba(0, 0, 0, 0.05);
+}
+
+.meet-coach {
+    padding: 20px 60px;
+    background-color:#042F4B;
+    box-shadow:8px 8px 0 #dde1e4;
+    border-radius: 0;
+    text-align: center;
+    font-weight: bold;
+    color:white;
+    text-decoration: none;
 }
