@@ -155,7 +155,7 @@
 .blockquote:after {
   position: absolute;
   top: 0;
-  content:"Style tips";
+  content:"Tips";
   font-size: 150px;
   color: rgba(0,0,0,0.1);
 }
