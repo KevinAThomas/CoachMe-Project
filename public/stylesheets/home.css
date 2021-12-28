@@ -3,22 +3,23 @@
 /*****Section 1******/
 
 .first-section {
-    height:650px;
+  padding-bottom: 100px;
+    height:700px;
+    color:white;
     font-family: 'Poppins';
     font-size:20px;
-
-    background-color:#ecf0f3;
+    background-image: url("/images/home_page.jpeg");
+    /*background-color:#ecf0f3; */
 }
 .container {
     display:flex; 
-  flex-direction: column;
-  padding-top:30px; 
+    flex-direction: column;
+    padding-top:30px; 
   }
   
   .build {
     font-size: 4.5rem;
     line-height: 1.25;
-    margin: 80px 0px;
     text-align: center;
   }
   
@@ -35,6 +36,9 @@
       border: none;
       outline:rgba(0, 0, 0, 0.05);
     }
+.firstp{
+  color:#ecf0f3;
+}
   
   .second-button a {
     margin: 15px; 
