@@ -3,7 +3,7 @@
 /*****Section 1******/
 
 .first-section {
-  padding-bottom: 100px;
+
     height:700px;
     color:white;
     font-family: 'Poppins';
@@ -14,14 +14,16 @@
 .container {
     display:flex; 
     flex-direction: column;
-    padding-top:30px; 
   }
   
   .build {
-    font-size: 4.5rem;
+    font-family: 'Sacramento', cursive;
+    font-size: 100px;
+    font-weight: bold;
     line-height: 1.25;
     text-align: center;
   }
+
   
   .first-article {
     text-align: center;

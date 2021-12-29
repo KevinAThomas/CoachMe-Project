@@ -20,8 +20,8 @@ header > div {
   align-items: center;
   color: white;
   flex-wrap: nowrap;
-  flex-direction: row;
-}
+  flex-direction: row; }
+
 span {
   display: inline-block;
   font-size: 20px;
