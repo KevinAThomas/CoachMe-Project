@@ -37,7 +37,7 @@
         </div>
 </form>
     </div>
-
+{{#if courses}}
     {{#each courses}}
     <article class="service-box">
     <h5>- Category : {{category}}</h5>
@@ -49,5 +49,11 @@
 </article>
 </button>
     {{/each}}
+
+{{else}}
+    <p>Sorry! No available courses Please contact us.</p>
+<button class = "search-btn"> contact us</button>
+{{/if}}
+
 </div>
 
