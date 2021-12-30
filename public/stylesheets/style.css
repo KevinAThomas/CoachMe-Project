@@ -52,4 +52,32 @@ nav a {
   font-size: 16px;
   padding-top: 18px; }
 
+/*POPUP for the cookie consent*/
+#cookiePopup {
+  text-align: center;
+  font-size: 20px;
+  background: white;
+  border-radius: 3%;
+  width: 25%;
+  position: fixed;
+  left: 10px;
+  bottom: 20px;
+  box-shadow: 0px 0px 15px #cccccc;
+  padding: 10px 30px; }
+
+#cookiePopup p {
+  text-align: left;
+  font-size: 15px;
+  color: #4e4e4e;
+  padding: 10px 30px; }
+
+#cookiePopup button {
+  width: 100%;
+  border: navajowhite;
+  background: #042F4B;
+  padding: 10px 20px;
+  margin: 20px 0px;
+  border-radius: 10px;
+  color: white; }
+
 /*# sourceMappingURL=style.css.map */
