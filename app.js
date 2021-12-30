@@ -47,16 +47,36 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-
 //added :session
   app.use(
     session({
       secret: process.env.SESS_SECRET,
       resave: false,
       saveUninitialized: true,
-      // cookie: { maxAge: 60000 } // 60 * 1000 ms === 1 min
+       cookie: { maxAge: 60000 } // 60 * 1000 ms === 1 min. it was the commented before(ytak)
     })
   );
+
+  /* Set a cookie */
+//get the cookie incoming request
+app.get('/setcookie', (req, res) => {
+  res.cookie(`Cookie token name`,`encrypted cookie string Value`,{
+      maxAge: 5000,
+      // expires works the same as the maxAge
+      expires: new Date('01 12 2021'),
+      secure: true,
+      httpOnly: true,
+      sameSite: 'lax'
+  });
+  res.send('Cookie have been saved successfully🥳!');
+});
+
+app.get('/getcookie', (req, res)=> {
+  //show the saved cookies
+  console.log(req.cookies);
+  res.send(req.cookies);
+})
+
 
 
 // default value for title local

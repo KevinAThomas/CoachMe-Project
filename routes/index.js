@@ -3,6 +3,10 @@ const router = express.Router();
 const bcryptjs = require('bcryptjs');
 const session = require('express-session');
 
+/* Import the installed cookie package */
+const cookieParser = require('cookie-parser')
+
+
 const User = require('../models/User');
 const Courses = require('../models/Courses');
 const Coaching = require('../models/Coaching');
@@ -12,6 +16,10 @@ const Reviews = require('../models/Reviews');
 router.get("/", (req, res, next) => {
   res.render("index");
 });
+
+
+
+
 
 /* GET review page */
 // req.curruser -> 
@@ -115,11 +123,7 @@ User.findOne({email})
     console.log(`ERR= ${err}`)
     next(err)
   })
-
-
-
 })
-
 
 router.get('/user-profile', (req, res) => {
   res.render('user-profile', {
