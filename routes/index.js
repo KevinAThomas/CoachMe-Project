@@ -3,14 +3,17 @@ const router = express.Router();
 const bcryptjs = require('bcryptjs');
 const session = require('express-session');
 
+
 /* Import the installed cookie package */
 const cookieParser = require('cookie-parser')
 
+const nodemailer = require('nodemailer');
 
 const User = require('../models/User');
 const Courses = require('../models/Courses');
 const Coaching = require('../models/Coaching');
 const Reviews = require('../models/Reviews');
+const { getMaxListeners } = require('../models/User');
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -18,7 +21,34 @@ router.get("/", (req, res, next) => {
 });
 
 
+/*GET send email page*/
+router.get("/mail", (req, res, next) => {
+  res.render('mail');
+})
 
+
+/*NOT WORKINGGGGGGG*/
+/*POST sending mail from the localhost*/
+
+router.post('/send-email', (req, res, next) => {
+  let { email, subject, message } = req.body;
+  let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: process.env.MAIL_USERNAME,
+      pass: process.env.MAIL_PASSWORD
+    }
+  });
+  transporter.sendMail({
+    from: '"message from website mycoach" <questions@mycoach.com>',
+    to: email, 
+    subject: subject, 
+    text: message,
+    html:`<b>${message}</b>`
+  })
+  .then(info => res.render('message', {email, subject, message, info}))
+  .catch(error => console.log(error));
+});
 
 
 /* GET review page */
@@ -210,6 +240,8 @@ router.post("/book-session", (req, res, next) => {
     })
 
 })
+
+
 
 /*GET booked page*/
 router.get("/booked", (req, res, next) => {
