@@ -46,13 +46,12 @@ body{
     background-color: #ecf0f3;
     font-family: 'Montserrat', sans-serif;
     color: #042F4B;
-
 }
 
 .top-letter {
     position: absolute;
-    color: #042F4B;
-    font-size: 5.625rem;
+    color: white;
+    font-size: 6.625rem;
     text-align:center;
     padding:200px;
     display: inline-block;
@@ -77,13 +76,12 @@ h2 {
 background-position: 0 0;
 background-repeat: no-repeat;
 background-size: cover;
-height: 650px;
+height: 500px;
 position:relative;
 }
 
 .book-class{
     min-width: 1024px;
-    opacity:0.5;
     position: absolute;
     /* Set up proportionate scaling */
     width: 100%;
@@ -253,3 +251,8 @@ select::-ms-expand {
     font-weight: bold;
 }
 
+.nocourse{
+  font-size: 25px;
+  padding:10px;
+  font-weight: bold;
+}

@@ -21,15 +21,12 @@ router.get("/", (req, res, next) => {
 });
 
 
-/*GET send email page*/
-router.get("/mail", (req, res, next) => {
+/*GET contact us page (send email page)*/
+router.get("/contact-us", (req, res, next) => {
   res.render('mail');
 })
 
-
-/*NOT WORKINGGGGGGG*/
 /*POST sending mail from the localhost*/
-
 router.post('/send-email', (req, res, next) => {
   let { email, subject, message } = req.body;
   let transporter = nodemailer.createTransport({
@@ -215,6 +212,8 @@ router.get("/book-session", (req, res, next) => {
     res.redirect('\login');
     return
   }
+
+  // find the courses
   Courses.find({})
     .populate('coach')
     .then(courses => {
@@ -227,27 +226,24 @@ router.get("/book-session", (req, res, next) => {
 })
 
 router.post("/book-session", (req, res, next) => {
-  console.log("FROM POST =>", req.body)
+ // console.log("FROM POST =>", req.body)
   Courses.find(req.body)
     .populate('coach')
     .populate('user')
     .then(courses => {
-      console.log("courses from POST /filter-session ==>", courses)
       //res.redirect('/book-session')
       res.render('book-session', {
         courses
       })
+      
     })
-
 })
-
 
 
 /*GET booked page*/
 router.get("/booked", (req, res, next) => {
   res.render("booked");
 })
-
 
 //logout
 router.post('/logout', (req, res) => {

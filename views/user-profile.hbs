@@ -7,8 +7,12 @@
                 {{#if userInSession}}
     <h1>{{ userInSession.email }}'s profile :</h1>
 
-    <h3>joined date: {{userInSession.createdAt}}</h3>
-    <h3>updated date: {{userInSession.updatedAt}}</h3>
+<p>
+</p>
+    <h3>Recent Login: <script> document.write(new Date().toLocaleDateString()); </script>
+    <h3>Memebr since: {{userInSession.createdAt}}</h3>
+
+
     <button>
 
 {{else}}
