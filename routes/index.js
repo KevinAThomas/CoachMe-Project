@@ -3,10 +3,9 @@ const router = express.Router();
 const bcryptjs = require('bcryptjs');
 const session = require('express-session');
 
-
 /* Import the installed cookie package */
 const cookieParser = require('cookie-parser')
-
+/* Import the installed nodemailer package */
 const nodemailer = require('nodemailer');
 
 const User = require('../models/User');
@@ -20,13 +19,12 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-
 /*GET contact us page (send email page)*/
 router.get("/contact-us", (req, res, next) => {
   res.render('mail');
 })
 
-/*POST sending mail from the localhost*/
+/*POST Sending mail from the localhost*/
 router.post('/send-email', (req, res, next) => {
   let { email, subject, message } = req.body;
   let transporter = nodemailer.createTransport({
@@ -180,9 +178,7 @@ router.post('/login', (req, res, next) => {
     return;
   }
 
-  User.findOne({
-      email
-    })
+  User.findOne({email})
     .then(user => {
       if (!user) {
         res.render('login', {
@@ -238,7 +234,6 @@ router.post("/book-session", (req, res, next) => {
       
     })
 })
-
 
 /*GET booked page*/
 router.get("/booked", (req, res, next) => {
