@@ -1,10 +1,18 @@
-<h1>Email sent</h1>
+<link rel="stylesheet" href="/stylesheets/message.css" />
 
-<h2>Email</h2>
-{{email}}
+<div class="mail-created-container">
+  <h1>Your message has been sent!</h1>
+  <img class="new-mail" src="/images/mail.png" />
+  <h2>Email</h2>
+  {{email}}
+  <h2>Subject</h2>
+  {{subject}}
+  <h2>Message</h2>
+  {{message}}
+</div>
 
-<h2>Subject</h2>
-{{subject}}
-
-<h2>Message</h2>
-{{message}}
+<div class="mail-btn-container">
+  <button class="mail-created-btn">
+    <a href="/">Go to homepage! </a>
+  </button>
+</div>
