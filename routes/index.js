@@ -8,6 +8,11 @@ const cookieParser = require('cookie-parser')
 /* Import the installed nodemailer package */
 const nodemailer = require('nodemailer');
 
+/* Import the GOOGLE OAth2 to work!!
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+ */
+
 const User = require('../models/User');
 const Courses = require('../models/Courses');
 const Coaching = require('../models/Coaching');
@@ -24,12 +29,16 @@ router.get("/contact-us", (req, res, next) => {
   res.render('mail');
 })
 
+
+/**/
+
 /*POST Sending mail from the localhost*/
 router.post('/send-email', (req, res, next) => {
   let { email, subject, message } = req.body;
   let transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
+   //   type: 'OAuth2',
       user: process.env.MAIL_USERNAME,
       pass: process.env.MAIL_PASSWORD
     }
